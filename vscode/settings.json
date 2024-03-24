@@ -1,0 +1,38 @@
+{
+    // User global confifguration
+    // VScode settings
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+        },
+        "zsh": {
+            "path": "zsh"
+        },
+        "tmux": {
+            "path": "tmux",
+            "icon": "terminal-tmux"
+        },
+    },
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    // vim extension 
+    "vim.useSystemClipboard": true,
+    "cmake.configureOnOpen": true,
+    "vim.smartRelativeLine": true,
+    // Cmake tools
+    "cmake.options.statusBarVisibility": "visible",
+    "cmake.sourceDirectory": "${workspaceFolder}",
+    // Clnag and Clang-format
+    "clangd.path": "/usr/bin/clangd",
+    "clang-format.executable": "/usr/bin/clang-format",
+    "clang-format.style": "file",
+    "clang-format.fallbackStyle": "Google",
+    "cmake.showOptionsMovedNotification": false,
+    "git.openRepositoryInParentFolders": "never",
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "cmake.showConfigureWithDebuggerNotification": false,
+}
