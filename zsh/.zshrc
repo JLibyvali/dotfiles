@@ -3,10 +3,8 @@
 # Default Path directory
 
 
-# Add sth to PATH
-export PATH=$PYENV_ROOT/bin:$PATH
-
-
+# Add sth to PATH for MIT6.828
+export PATH=/home/jlibyvali/TOOLS/NewlibCrossCompiler/bin:$PATH
 
 
 # Fcitx input method
@@ -95,7 +93,7 @@ export IDF_PATH="/home/jlibyvali/TOOLS/esp-idf"
 export PYENV_ROOT="$HOME/.pyenv"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
