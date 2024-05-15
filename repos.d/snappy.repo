@@ -1,0 +1,6 @@
+[snappy]
+enabled=1
+autorefresh=1
+baseurl=https://download.opensuse.org/repositories/system:/snappy/openSUSE_Tumbleweed
+type=rpm-md
+keeppackages=0

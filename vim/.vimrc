@@ -2,6 +2,11 @@
 set relativenumber
 set number
 
+" switch tabs
+nnoremap <Tab><Left> :tabprevious<CR>
+nnoremap <Tab><Right> :tabnext<CR>
+
+
 " tab
 set expandtab
 set tabstop=4
@@ -26,14 +31,13 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 
 " LSP
+	let g:lsp_diagnostics_enabled = 0
     nmap <buffer> gd <plug>(lsp-definition)
     nmap <buffer> gs <plug>(lsp-document-symbol-search)
     nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
     nmap <buffer> gr <plug>(lsp-references)
     nmap <buffer> gi <plug>(lsp-implementation)
     nmap <buffer> <f2>  <plug>(lsp-rename)
-    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
-    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
     nmap <buffer> K <plug>(lsp-hover)
 
 " Plug

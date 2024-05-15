@@ -1,0 +1,8 @@
+[repo-packman]
+name=Aliyun-PackMan-Repo
+enabled=1
+autorefresh=1
+baseurl=https://mirrors.aliyun.com/packman/suse/openSUSE_Tumbleweed/?spm=a2c6h.25603864.0.0.590d4505PkdP03
+type=rpm-md
+gpgcheck=1
+keeppackages=0

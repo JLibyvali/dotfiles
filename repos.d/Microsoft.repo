@@ -1,0 +1,6 @@
+[repo-microsoft]
+name=packages-microsoft
+baseurl=https://packages.microsoft.com/opensuse/15/prod/
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.microsoft.com/keys/microsoft.asc

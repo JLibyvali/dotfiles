@@ -1,0 +1,7 @@
+[repo-non-oss]
+name=Qinghua-Tumbleweed-Non-oss
+enabled=1
+autorefresh=1
+baseurl=https://mirrors.tuna.tsinghua.edu.cn/opensuse/tumbleweed/repo/non-oss/
+type=rpm-md
+keeppackages=0

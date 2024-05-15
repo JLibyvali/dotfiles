@@ -4,7 +4,7 @@
 
 
 # Add sth to PATH for MIT6.828
-export PATH=/home/jlibyvali/TOOLS/NewlibCrossCompiler/bin:$PATH
+export PATH=$HOME/TOOLS/NewlibCrossCompiler/bin:$PATH
 
 
 # Fcitx input method
@@ -89,8 +89,6 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export IDF_PATH="/home/jlibyvali/TOOLS/esp-idf"
-export PYENV_ROOT="$HOME/.pyenv"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -113,4 +111,7 @@ export LANG=en_US.UTF-8
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias getidf="source /home/jlibyvali/TOOLS/esp-idf/export.sh"
+alias getidf="source $HOME/TOOLS/esp-idf/export.sh"
+# PATH
+export IDF_PATH="$HOME/TOOLS/esp-idf"
+export PYENV_ROOT="$HOME/.pyenv"
