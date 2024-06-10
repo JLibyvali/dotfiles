@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug-STUtil",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/Mine_STM32f103x.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "runToEntryPoint": "main",
+            "servertype": "stutil",
+
+            // Toolchain
+            "armToolchainPath": "/home/jlibyvali/TOOLS/arm-none-eabi-GNUtoolchain/bin",
+            "toolchainPrefix":"arm-none-eabi",
+            "showDevDebugOutput": "raw",
+            "interface": "swd",
+        }
+    ]
+}

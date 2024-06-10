@@ -20,24 +20,6 @@ get_filename_component(LD_SCRIPT_DIR_ABSOLUTE ${LD_SCRIPT_DIR} ABSOLUTE)
 set(TOOLCHAIN_DIR "/home/jlibyvali/TOOLS/arm-none-eabi-GNUtoolchain")
 set(TOOLCHAIN_PREFIX "arm-none-eabi")
 
-# function(CHECK TOOL OUTPUT_VAR)
-
-#   execute_process(
-#     COMMAND ${TOOL} --version
-#     RESULT_VARIABLE RESULT
-#     OUTPUT_VARIABLE OUTPUT
-#     ERROR_VARIABLE ERROR_OUTPUT
-#     OUTPUT_STRIP_TRAILING_WHITESPACE)
-
-#   if(${RESULT} EQUAL 0)
-#     set(${OUTPUT_VAR}
-#         ${OUTPUT}
-#         PARENT_SCOPE)
-#  else()
-#     message(FATAL_ERROR "Failed to run ${TOOL} --version: ${ERROR_OUTPUT}")
-#   endif()
-
-# endfunction()
 
 set(TOOLCHAIN_BIN_DIR ${TOOLCHAIN_DIR}/bin)
 set(TOOLCHAIN_INC_DIR ${TOOLCHAIN_DIR}/${TOOLCHAIN_PREFIX}/include)
@@ -66,7 +48,7 @@ set(CMAKE_ASM_COMPILER
     ${TOOLCHAIN_BIN_DIR}/${TOOLCHAIN_PREFIX}-gcc${TOOLCHAIN_EXT}
     CACHE INTERNAL "ASM Compiler")
 set(CMAKE_LINKER
-    ${TOOLCHAIN_BIN_DIR}/${TOOLCHAIN_PREFIX}-g++${TOOLCHAIN_EXT}
+    ${TOOLCHAIN_BIN_DIR}/${TOOLCHAIN_PREFIX}-ld${TOOLCHAIN_EXT}
     CACHE INTERNAL "Linker")
 set(CMAKE_OBJCOPY
     ${TOOLCHAIN_BIN_DIR}/${TOOLCHAIN_PREFIX}-objcopy${TOOLCHAIN_EXT}

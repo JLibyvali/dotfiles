@@ -1,22 +1,22 @@
-###########################################################################
+# ##############################################################################
 # My Cmake tempalte for STM
-###########################################################################
+# ##############################################################################
 cmake_minimum_required(VERSION 3.22)
 
 set(PROJECT_NAME "Mine_STM32f103x")
-set(PROJECT_FILES "FILES")   # for all source files
+set(PROJECT_FILES "FILES") # for all source files
 set(TOOLCHAIN_FILE_NAME "My-arm-none-eabi.cmake")
 
 # set project toolchain-file relative folder
 set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_LIST_DIR}/${TOOLCHAIN_FILE_NAME})
-
 
 # language support and key-file path setting
 enable_language(C ASM CXX)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
-# <LANG>_EXTENSIONS alwasy default set to ON, it use to passing flags to compiler
+# <LANG>_EXTENSIONS alwasy default set to ON, it use to passing flags to
+# compiler
 set(CMAKE_C_EXTENSIONS ON)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -33,43 +33,37 @@ endif()
 
 message("Build Type: " ${CMAKE_BUILD_TYPE})
 
-
-################################################################################
-##include files and source files, definition by subdirectory CMakeLists.txt
-################################################################################
-
+# ##############################################################################
+# include files and source files, definition by subdirectory CMakeLists.txt
+# ##############################################################################
 
 # Create an executable object type
 add_executable(${CMAKE_PROJECT_NAME})
-
 # Add STM32CubeMX generated sources
 add_subdirectory(${PROJECT_FILES})
 
-
-# Link directories setup
-target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
-    # Add user defined library search paths
-)
-
 # Add sources to executable
-target_sources(${CMAKE_PROJECT_NAME} PRIVATE
-    # Add user sources file here
+target_sources(${CMAKE_PROJECT_NAME} PRIVATE # Add user sources file here
 )
 
 # Add include paths
-target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
-    # Add user defined include paths
+target_include_directories(
+  ${CMAKE_PROJECT_NAME} PRIVATE # Add user defined include paths
 )
 
- # Add project symbols (macros)
- target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
-     # Add user defined symbols
- )
+# Add project symbols (macros)
+target_compile_definitions(
+  ${CMAKE_PROJECT_NAME} PRIVATE # Add user defined symbols
+)
+
+# Link directories setup
+target_link_directories(
+  ${CMAKE_PROJECT_NAME} PRIVATE # Add user defined library search paths
+)
 
 # Add linked libraries
-target_link_libraries(${CMAKE_PROJECT_NAME}
-    ${PROJECT_FILES}
-    # Add user defined libraries
+target_link_libraries(
+  ${CMAKE_PROJECT_NAME} PRIVATE ${PROJECT_FILES} # Add user defined libraries
 )
 
 # ##############################################################################
@@ -87,10 +81,8 @@ add_custom_target(
 add_custom_target(
   size ALL
   ${CMAKE_SIZE} "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}.elf"
-  DEPENDS bin )
+  DEPENDS bin)
 
-
-  
 # ##############################################################################
 # For customer command
 # ##############################################################################
@@ -120,22 +112,11 @@ elseif(NOT ST_FLASH)
   message(WARNING "`st-flash` not found, flash will not be availabe!")
 endif()
 
-if(ST_UTIL)
 
-  add_custom_command(
-    OUTPUT st-util-started
-    COMMAND nohup st-util > st-util-log.txt 2>&1  & 
-    COMMAND sleep 2 # wait for st-util start
-    COMMAND touch st-util-started
-    COMMENT "Starting st-util")
+add_custom_command(
+  USES_TERMINAL
+  OUTPUT info-cmd
+  COMMAND ${ST_INFO} --probe
+  COMMENT "Printed All chip info")
 
-  add_custom_command(
-    OUTPUT gdb-started
-    COMMAND ${TOOLCHAIN_DIR}/bin/${TOOLCHAIN_PREFIX}gdb
-            ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}.elf
-    DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}.elf
-            st-util-started)
-
-  add_custom_target(gdb DEPENDS gdb-started)
-
-endif()
+add_custom_target(info DEPENDS info-cmd)

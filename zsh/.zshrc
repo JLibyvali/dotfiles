@@ -4,7 +4,10 @@
 
 
 # Add sth to PATH for MIT6.828
-export PATH=$HOME/TOOLS/NewlibCrossCompiler/bin:$PATH
+export PATH=$HOME/TOOLS/RiscVToollchain_fromSoucecode/bin:$PATH
+export PATH=$HADOOP_HOME/bin:$PATH
+export PATH=$HADOOP_HOME/sbin:$PATH
+
 
 
 # Fcitx input method
@@ -109,9 +112,15 @@ export LANG=en_US.UTF-8
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
+
+
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias getidf="source $HOME/TOOLS/esp-idf/export.sh"
-# PATH
+
+# Custom Enviroment
 export IDF_PATH="$HOME/TOOLS/esp-idf"
 export PYENV_ROOT="$HOME/.pyenv"
+export JAVA_HOME="/usr/lib64/jvm/java-11-openjdk-11"
+export HADOOP_HOME="/home/jlibyvali/bin/Hadoop_3.4"
+export HADOOP_COMMON_LIB_NATIVE_DIR="$HADOOP_HOME/lib/native"
