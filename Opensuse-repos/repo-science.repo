@@ -1,7 +1,0 @@
-[repo-science]
-name=Science-Tumbleweed-repo
-enabled=1
-autorefresh=0
-baseurl=https://download.opensuse.org/repositories/science/openSUSE_Tumbleweed/
-type=rpm-md
-keeppackages=0

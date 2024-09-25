@@ -1,7 +1,0 @@
-[repo-oss]
-name=Qinghua-Tumbleweed-Oss
-enabled=1
-autorefresh=1
-baseurl=https://mirrors.tuna.tsinghua.edu.cn/opensuse/tumbleweed/repo/oss/
-type=rpm-md
-keeppackages=0
