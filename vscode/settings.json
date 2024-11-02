@@ -1,84 +1,70 @@
 {
-    // User global confifguration
-    // VScode settings
-    "editor.tabSize": 4,
-    "editor.multiCursorModifier": "ctrlCmd",
-    "editor.fontFamily": "'Droid Sans Mono', 'monospace'",
-    "editor.defaultFormatter": "xaver.clang-format",
-    "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": false,
-    "terminal.integrated.profiles.linux": {
-        "bash": {
-            "path": "bash",
-            "icon": "terminal-bash"
-        },
-        "zsh": {
-            "path": "zsh"
-        },
-        "tmux": {
-            "path": "tmux",
-            "icon": "terminal-tmux"
-        },
-    },
-    "terminal.integrated.defaultProfile.linux": "zsh",
-    // git 
-    "git.openRepositoryInParentFolders": "never",
-    // vim extension        
-    "vim.overrideCopy": true, // using vim copy-mode override vscode'
-    "vim.hlsearch": true, // highlight all text matched
-    "vim.useSystemClipboard": true,
-    "vim.smartRelativeLine": true,
-    "vim.vimrc.enable": false,
-    "vim.useCtrlKeys": false,
-    "vim.handleKeys": {
-        "<C-d>": true,
-        "<C-u>": true,
-        "<C-c>": true,
-        "<C-v>": true,
-        "<C-r>": true,
-    },
-    // To improve performance
+// TO improve performance
     "extensions.experimental.affinity": {
-        "vscodevim.vim": 1
+        "vscode.vim": 1
     },
-    // Cmake tools
-    "cmake.configureOnOpen": true,
-    "cmake.options.statusBarVisibility": "visible",
-    "cmake.sourceDirectory": "${workspaceFolder}",
-    "cmake.showOptionsMovedNotification": false,
-    // Clang and Clang-format
-    "clangd.arguments": [
-        "--compile-commands-dir=${workspaceFolder}/build"
-    ],
-    "clangd.path": "/home/jlibyvali/.config/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/18.1.3/clangd_18.1.3/bin/clangd",
-    
-    "clang-format.assumeFilename": ".clang-format",
-    "clang-format.executable": "/usr/bin/clang-format",
-    "clang-format.style": "file",
-    "clang-format.fallbackStyle": "none",
-    // To use clangd format or .calng-format
-    "[c]": {
-        "editor.defaultFormatter": "xaver.clang-format"
-    },
-    "[cpp]": {
-        "editor.defaultFormatter": "xaver.clang-format"
-    },
+// Set 
+    "editor.tabSize": 4,
+    "editor.tabCompletion": "on",
+    "editor.defaultFormatter": "xaver.clang-format",
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "extensions.autoUpdate": false,
+// Set VSCode default  shell in different system
+    "terminal.external.linuxExec": "/usr/bin/gnome-terminal",
+    "terminal.external.windowsExec": "C:\\Windows\\System32\\cmd.exe",
+    "terminal.external.osxExec": "Terminal.app",
+
+// cmake language support
+// cmake-tools settings for some auto feature
     "[cmake]": {
-        "editor.defaultFormatter": "cheshirekow.cmake-format"
+        "editor.defaultFormatter": "josetr.cmake-language-support-vscode"
     },
-    // lldb
-    "lldb.verboseLogging": true,
-    "files.associations": {
-        "*.S": "lldb.disassembly"
-    },
-    // cmake-format
-    "cmakeFormat.exePath": "/home/jlibyvali/.local/bin/cmake-format",
-    "workbench.settings.applyToAllProfiles": [
-        "editor.tabSize"
-    ],
-    "redhat.telemetry.enabled": false,
+    "cmake.format.allowOptionalArgumentIndentation": true,
+    "cmake.format.spaceAfterCommandName": true,
+    "cmake.format.spaceInParentheses": true,
+    "cmake.options.statusBarVisibility": "visible",
+    "cmake.showOptionsMovedNotification": false,
+    "cmake.configureOnOpen": false,
+    "cmake.configureOnEdit": false,
+    "cmake.showConfigureWithDebuggerNotification": false,
     "cmake.pinnedCommands": [
         "workbench.action.tasks.configureTaskRunner",
         "workbench.action.tasks.runTask"
     ],
+
+// Set settings to All profiles
+    "workbench.settings.applyToAllProfiles": [
+        "editor.defaultFormatter",
+        "cmake.options.statusBarVisibility",
+        "vim.useSystemClipboard"
+    ],
+    
+// vim 
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "vim.useCtrlKeys": false,
+    "vim.handleKeys": {
+        "<C-r>": true,
+        "<C-c>": true,
+        "<C-d>": true,
+        "<C-v>": true,
+    },
+
+// Themes
+    "workbench.iconTheme": "material-icon-theme",
+    "makefile.configureOnOpen": false,
+    "workbench.colorTheme": "Tomorrow Night Blue",
+// Github
+    "git.openRepositoryInParentFolders": "always",
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+// clang-tidy
+    "clang-tidy.executable": "/usr/bin/clang-tidy",
+    "clang-tidy.buildPath": "/build/compile_commands.json",
 }
