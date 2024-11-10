@@ -1,36 +1,36 @@
 [submodule "asio"]
-    path= libs/3rdpart/asio
+    path= cpp/libs/3rdpart/asio
     url = git@github.com:JLibyvali/asio.git 
 [submodule "benchmark"]
-    path=  libs/3rdpart/benchmark
+    path=  cpp/libs/3rdpart/benchmark
     url  = git@github.com:google/benchmark.git
 [submodule "brpc"]
-    path= libs/3rdpart/brpc
+    path= cpp/libs/3rdpart/brpc
     url = git@github.com:apache/brpc.git
 [submodule "CLI"]
-    path= libs/3rdpart/CLI11
+    path= cpp/libs/3rdpart/CLI11
     url = https://github.com/CLIUtils/CLI11.git
 [submodule "concurrentqueue"]
-    path= libs/3rdpart/concurrentqueue
+    path= cpp/libs/3rdpart/concurrentqueue
     url = git@github.com:cameron314/concurrentqueue.git
 [submodule "cppzmp"]
-    path= library/3rdpart/cppzmp
+    path= cpp/libs/3rdpart/cppzmq
     url =  git@github.com:zeromq/cppzmq.git
 [submodule "iperf"]
-    path= libs/3rdpart/iperf
+    path= cpp/libs/3rdpart/iperf
     url = git@github.com:esnet/iperf.git
 [submodule "json"]
-    path=libs/3rdpart/json
+    path=cpp/libs/3rdpart/json
     url=git@github.com:nlohmann/json.gi
 [submodule "oneTBB"]
-    path= libs/3rdpart/oneTBB
+    path= cpp/libs/3rdpart/oneTBB
     url = git@github.com:oneapi-src/oneTBB.git
 [submodule "protobuf"]
-    path= libs/3rdpart/protobuf
+    path= cpp/libs/3rdpart/protobuf
     url = git@github.com:protocolbuffers/protobuf.git
 [submodule "taskflow"]
-    path= libs/3rdpart/taskflow
+    path= cpp/libs/3rdpart/taskflow
     url = git@github.com:taskflow/taskflow.git
 [submodule "tinyProcess"]
-    path=libs/3rdpart/tiny-process-library
+    path=cpp/libs/3rdpart/tiny-process-library
     url = git@gitlab.com:eidheim/tiny-process-library.git
