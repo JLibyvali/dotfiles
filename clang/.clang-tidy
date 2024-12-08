@@ -1,0 +1,144 @@
+---
+# Enable all checks, disable some no that stable checks
+Checks:    '*,
+    -llvm-*,
+    -llvmlibc-*,
+    -altera-*,
+    -android-*,
+    -boost-*,
+    -darwin-*,
+    -fuchsia-*,
+    -linuxkernel-*,
+    -objc-*,
+    -portability-*,
+    -zircon-*,
+    -clang-analyzer-osx*,
+    -clang-analyzer-optin.cplusplus.UninitializedObject,
+    -clang-analyzer-optin.cplusplus.VirtualCall,
+    -clang-analyzer-core.NullDereference,
+    -clang-analyzer-cplusplus.NewDelete,
+    -clang-analyzer-cplusplus.PlacementNew,
+    -clang-analyzer-cplusplus.NewDeleteLeaks,
+    -clang-analyzer-cplusplus.Move,
+    -clang-diagnostic-unused-parameter,
+    -cppcoreguidelines-*,
+    cppcoreguidelines-explicit-virtual-functions,
+    cppcoreguidelines-special-member-functions,
+    -cert-err58-cpp,
+    -cert-env33-c,
+    -cert-dcl37-c,
+    -cert-dcl51-cpp,
+    -google-runtime-int,
+    -google-readability-casting,
+    -google-readability-function-size,
+    -google-readability-todo,
+    -google-readability-braces-around-statements,
+    -google-build-using-namespace,
+    -readability-magic-numbers,
+    -readability-implicit-bool-conversion,
+    -readability-function-cognitive-complexity,
+    -readability-isolate-declaration,
+    -readability-convert-member-functions-to-static,
+    -readability-container-size-empty,
+    -readability-function-size,
+    -readability-qualified-auto,
+    -readability-make-member-function-const,
+    -readability-named-parameter,
+    -modernize-use-trailing-return-type,
+    -modernize-avoid-c-arrays,
+    -modernize-use-nullptr,
+    -modernize-replace-disallow-copy-and-assign-macro,
+    -modernize-use-bool-literals,
+    -modernize-use-equals-default,
+    -modernize-use-default-member-init,
+    -modernize-use-auto,
+    -modernize-loop-convert,
+    -modernize-deprecated-headers,
+    -modernize-raw-string-literal,
+    -misc-no-recursion,
+    -misc-unused-parameters,
+    -misc-redundant-expression,
+    -misc-non-private-member-variables-in-classes,
+    -hicpp-*,
+    hicpp-exception-baseclass,  
+    -bugprone-easily-swappable-parameters,
+    -bugprone-implicit-widening-of-multiplication-result,
+    -bugprone-integer-division,
+    -bugprone-exception-escape,
+    -bugprone-reserved-identifier,
+    -bugprone-branch-clone,
+    -bugprone-narrowing-conversions,
+    -performance-no-int-to-ptr,
+'
+# Treat warnnign as error
+WarningsAsErrors: '-misc-non-private-member-variables-in-class'
+
+# regex match srouces head files, exclude system libraray and 3rdpart libraray headers
+HeaderFilterRegex: '^src/.+\\.hpp$'
+FormatStyle:     file
+User:            jlibyvali
+
+# key-value options
+CheckOptions:
+# class identifier rules
+  - key: readability-identifier-naming.ClassCase
+    value: CamelCase
+  - key: readability-identifier-naming.EnumCase
+    value: CamelCase
+  - key: readability-identifier-naming.StructCase
+    value: CamelCase
+  - key: readability-identifier-naming.PrivateMemberCase
+    value: lower_case
+  - key: readability-identifier-naming.PrivateMemberPrefix
+    value: m_
+  - key: readability-identifier-naming.PrivateMethodCase
+    value: lower_case
+  - key: readability-identifier-naming.ProtectedMemberCase
+    value: lower_case
+  - key: readability-identifier-naming.ProtectedMemberPrefix
+    value: m_
+  - key: readability-identifier-naming.ProtectedMethodCase
+    value: lower_case
+  - key: readability-identifier-naming.VirtualMethodCase
+    value: lower_case
+  - key: readability-identifier-naming.VirtualMethodSuffix
+    value: _virt
+# function parameter identifier rules
+  - key: readability-identifier-naming.ParameterCase
+    value: lower_case
+  - key: readability-identifier-naming.ParameterPrefix
+    value: _
+  - key: readability-identifier-naming.PointerParameterCase
+    value: lower_case
+  - key: readability-identifier-naming.PointerParameterPrefix
+    value: _
+  - key: readability-identifier-naming.PointerParameterSuffix
+    value: _ptr
+# Ignore GoogleTest function macros.
+  - key: readability-identifier-naming.FunctionIgnoredRegexp
+    value: '(TEST|TEST_F|TEST_P|INSTANTIATE_TEST_SUITE_P|MOCK_METHOD|TYPED_TEST)'
+# variables
+  - key: readability-identifier-naming.LocalVariableCase
+    value: lower_case
+  - key: readability-identifier-naming.LocalPointerCase
+    value: lower_case
+  - key: readability-identifier-naming.LocalPointerSuffix
+    value: _ptr
+  - key: readability-identifier-naming.StaticConstantCase
+    value: aNy_CasE
+# Misc
+  - key: readability-braces-around-statements.ShortStatementLines
+    value:  '2'
+  - key: readability-uppercase-literal-suffix
+    value: 'l;ll;lu;llu;f;u;ul;ull'
+  - key: cppcoreguidelines-special-member-functions.AllowSoleDefaultDtor
+    value: true
+  - key: cppcoreguidelines-special-member-functions.AllowMissingMoveFunctions
+    value: true
+  - key: cppcoreguidelines-special-member-functions.AllowMissingMoveFunctionsWhenCopyIsDeleted
+    value: true
+  - key: cert-err33-c.CheckedFunctions
+    value: '::aligned_alloc;::asctime_s;::at_quick_exit;::atexit;::bsearch;::bsearch_s;::btowc;::c16rtomb;::c32rtomb;::calloc;::clock;::cnd_broadcast;::cnd_init;::cnd_signal;::cnd_timedwait;::cnd_wait;::ctime_s;::fclose;::fflush;::fgetc;::fgetpos;::fgets;::fgetwc;::fopen;::fopen_s;::fprintf;::fprintf_s;::fputc;::fputs;::fputwc;::fputws;::fread;::freopen;::freopen_s;::fscanf;::fscanf_s;::fseek;::fsetpos;::ftell;::fwprintf;::fwprintf_s;::fwrite;::fwscanf;::fwscanf_s;::getc;::getchar;::getenv;::getenv_s;::gets_s;::getwc;::getwchar;::gmtime;::gmtime_s;::localtime;::localtime_s;::malloc;::mbrtoc16;::mbrtoc32;::mbsrtowcs;::mbsrtowcs_s;::mbstowcs;::mbstowcs_s;::memchr;::mktime;::mtx_init;::mtx_lock;::mtx_timedlock;::mtx_trylock;::mtx_unlock;::printf_s;::putc;::putwc;::raise;::realloc;::remove;::rename;::scanf;::scanf_s;::setlocale;::setvbuf;::signal;::snprintf;::snprintf_s;::sprintf;::sprintf_s;::sscanf;::sscanf_s;::strchr;::strerror_s;::strftime;::strpbrk;::strrchr;::strstr;::strtod;::strtof;::strtoimax;::strtok;::strtok_s;::strtol;::strtold;::strtoll;::strtoul;::strtoull;::strtoumax;::strxfrm;::swprintf;::swprintf_s;::swscanf;::swscanf_s;::thrd_create;::thrd_detach;::thrd_join;::thrd_sleep;::time;::timespec_get;::tmpfile;::tmpfile_s;::tmpnam;::tmpnam_s;::tss_create;::tss_get;::tss_set;::ungetc;::ungetwc;::vfprintf;::vfprintf_s;::vfscanf;::vfscanf_s;::vfwprintf;::vfwprintf_s;::vfwscanf;::vfwscanf_s;::vprintf_s;::vscanf;::vscanf_s;::vsnprintf;::vsnprintf_s;::vsprintf;::vsprintf_s;::vsscanf;::vsscanf_s;::vswprintf;::vswprintf_s;::vswscanf;::vswscanf_s;::vwprintf_s;::vwscanf;::vwscanf_s;::wcrtomb;::wcschr;::wcsftime;::wcspbrk;::wcsrchr;::wcsrtombs;::wcsrtombs_s;::wcsstr;::wcstod;::wcstof;::wcstoimax;::wcstok;::wcstok_s;::wcstol;::wcstold;::wcstoll;::wcstombs;::wcstombs_s;::wcstoul;::wcstoull;::wcstoumax;::wcsxfrm;::wctob;::wctrans;::wctype;::wmemchr;::wprintf_s;::wscanf;::wscanf_s;'
+SystemHeaders:   false
+...
+

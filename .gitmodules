@@ -3,34 +3,40 @@
     url = git@github.com:JLibyvali/asio.git 
 [submodule "benchmark"]
     path=  cpp/libs/3rdpart/benchmark
-    url  = git@github.com:google/benchmark.git
+    url  = https://github.com/google/benchmark.git
 [submodule "brpc"]
     path= cpp/libs/3rdpart/brpc
-    url = git@github.com:apache/brpc.git
+    url = https://github.com/apache/brpc.git
 [submodule "CLI"]
     path= cpp/libs/3rdpart/CLI11
     url = https://github.com/CLIUtils/CLI11.git
 [submodule "concurrentqueue"]
     path= cpp/libs/3rdpart/concurrentqueue
-    url = git@github.com:cameron314/concurrentqueue.git
+    url = https://github.com/cameron314/concurrentqueue.git
 [submodule "cppzmp"]
     path= cpp/libs/3rdpart/cppzmq
-    url =  git@github.com:zeromq/cppzmq.git
+    url =  https://github.com/zeromq/cppzmq.git
 [submodule "iperf"]
     path= cpp/libs/3rdpart/iperf
-    url = git@github.com:esnet/iperf.git
+    url = https://github.com/esnet/iperf.git
 [submodule "json"]
     path=cpp/libs/3rdpart/json
-    url=git@github.com:nlohmann/json.gi
+    url=https://github.com/nlohmann/json.gi
+[submodule "libevent"]
+    path=cpp/libs/3rdpart/libevent
+    url=https://github.com/libevent/libevent
+[submodule "libuv"]
+    path=cpp/libs/3rdpart/libuv
+    url=https://github.com/libuv/libuv
 [submodule "oneTBB"]
     path= cpp/libs/3rdpart/oneTBB
-    url = git@github.com:oneapi-src/oneTBB.git
+    url = https://github.com/oneapi-src/oneTBB.git
 [submodule "protobuf"]
     path= cpp/libs/3rdpart/protobuf
-    url = git@github.com:protocolbuffers/protobuf.git
+    url = https://github.com/protocolbuffers/protobuf.git
 [submodule "tinyProcess"]
     path= cpp/libs/3rdpart/tiny-process-library
-    url = git@gitlab.com:eidheim/tiny-process-library.git
+    url = https://gitlab.com/eidheim/tiny-process-library.git
 [submodule "taskflow"]
     path= cpp/libs/3rdpart/taskflow
-    url = git@github.com:JLibyvali/dotfiles.git
+    url = https://github.com/JLibyvali/dotfiles.git
