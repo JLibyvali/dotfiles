@@ -17,7 +17,7 @@
                     // it gets resolved by CMake Tools:
                     "name": "PATH",
                     "value": "${env:PATH}:${command:cmake.getLaunchTargetDirectory}"
-                },
+                }
             ],
             "externalConsole": true,
             "MIMode": "lldb",
@@ -29,37 +29,14 @@
                 }
             ]
         },
-
         {
-            "name": "GDB launch",
+            "name": "GDB",
             "type": "gdb",
             "request": "launch",
             "target": "${command:cmake.launchTargetPath}",
             "cwd": "${workspaceRoot}",
-            "valuesFormatting": "parseText"
-        },
-        // For Debuging CMake scripts
-        {
-            "name": "CMake Configure Debug ",
-            "type": "cmake",
-            "request": "launch",
-            "cmakeDebugType": "configure",
-            "clean": true,
-            "configureAll": false
-        },
-        {
-            "name": "CMake Script debugging",
-            "type": "cmake",
-            "request": "launch",
-            "cmakeDebugType": "script",
-            "scriptPath": "${workspaceFolder}/build/<Debug content>.cmake"
-        },
-        {
-            "type": "cmake",
-            "request": "launch",
-            "name": "Debug externally launched ",
-            "cmakeDebugType": "external",
-            "pipeName": "<insert-pipe-name>"
-        },
+            "valuesFormatting": "parseText",
+            "stopAtEntry":true
+        }
     ]
 }

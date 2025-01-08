@@ -3,7 +3,7 @@
     url = git@github.com:JLibyvali/asio.git 
 [submodule "benchmark"]
     path=  cpp/libs/3rdpart/benchmark
-    url  = https://github.com/google/benchmark.git
+    url = https://github.com/google/benchmark.git
 [submodule "brpc"]
     path= cpp/libs/3rdpart/brpc
     url = https://github.com/apache/brpc.git
@@ -21,13 +21,13 @@
     url = https://github.com/esnet/iperf.git
 [submodule "json"]
     path=cpp/libs/3rdpart/json
-    url=https://github.com/nlohmann/json.gi
+    url=https://github.com/nlohmann/json.git
 [submodule "libevent"]
     path=cpp/libs/3rdpart/libevent
-    url=https://github.com/libevent/libevent
+    url=https://github.com/libevent/libevent.git
 [submodule "libuv"]
     path=cpp/libs/3rdpart/libuv
-    url=https://github.com/libuv/libuv
+    url=https://github.com/libuv/libuv.git
 [submodule "oneTBB"]
     path= cpp/libs/3rdpart/oneTBB
     url = https://github.com/oneapi-src/oneTBB.git
@@ -39,4 +39,4 @@
     url = https://gitlab.com/eidheim/tiny-process-library.git
 [submodule "taskflow"]
     path= cpp/libs/3rdpart/taskflow
-    url = https://github.com/JLibyvali/dotfiles.git
+    url = https://github.com/taskflow/taskflow.git
