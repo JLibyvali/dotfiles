@@ -32,15 +32,17 @@ if ( NOT DEFINED TOOLCHAIN_PATH )
     endif ()
 endif ()
 
-set ( TOOLCHAIN_BIN_DIR ${TOOLCHAIN_PATH}/bin )
-set ( TOOLCHAIN_INC_DIR ${TOOLCHAIN_PATH}/${TOOLCHAIN_PREFIX}/include )
-set ( TOOLCHAIN_LIB_DIR ${TOOLCHAIN_PATH}/${TOOLCHAIN_PREFIX}/lib )
+if ( DEFINED TOOLCHAIN_PREFIX )
+    set ( TOOLCHAIN_BIN_DIR ${TOOLCHAIN_PATH}/bin )
+    set ( TOOLCHAIN_INC_DIR ${TOOLCHAIN_PATH}/${TOOLCHAIN_PREFIX}/include )
+    set ( TOOLCHAIN_LIB_DIR ${TOOLCHAIN_PATH}/${TOOLCHAIN_PREFIX}/lib )
 
-# ## ToolChain file extension.
-if ( WIN32 )
-    set ( TOOLCHAIN_EXT ".exe" )
-else ()
-    set ( TOOLCHAIN_EXT "" )
+    # ## ToolChain file extension.
+    if ( WIN32 )
+        set ( TOOLCHAIN_EXT ".exe" )
+    else ()
+        set ( TOOLCHAIN_EXT "" )
+    endif ()
 endif ()
 
 # ## Perform compiler test with static library
@@ -78,8 +80,8 @@ set ( CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY )
 # -grecord-gcc-switches     "captures compiler flags, which can be useful to determine whether the intended compiler flags are used throughout the build."
 set ( CPU_TYPE "native" )
 set ( FLAG_SAFER "-fcf-protection -fexceptions -fstack-protector-strong -fstack-clash-protection " )
-set ( FLAG_OBJGEN "-O0 -m64 -march=${CPU_TYPE} -mcpu=${CPU_TYPE} -mtune=${CPU_TYPE} -Wall -ffunction-sections -fdata-sections -fstack-usage -funroll-all-loops" )
-set ( FLAG_ARM "-O0 -march=${CPU_TYPE} -mcpu=${CPU_TYPE} -mtune=${CPU_TYPE} -Wall -fno-builtin -mthumb -ffunction-sections -fdata-sections -mabi=aapcs" )
+set ( FLAG_OBJGEN "-O0 -m64 -march=${CPU_TYPE} -mtune=${CPU_TYPE} -Wall -ffunction-sections -fdata-sections -fstack-usage -funroll-all-loops" )
+set ( FLAG_ARM "-O0 -march=${CPU_TYPE} -mtune=${CPU_TYPE} -Wall -fno-builtin -mthumb -ffunction-sections -fdata-sections -mabi=aapcs" )
 
 set ( CMAKE_C_FLAGS "${FLAG_SAFER} ${FLAG_OBJGEN}" CACHE INTERNAL "C Compiler option flags" )
 set ( CMAKE_CXX_FLAGS "${FLAG_SAFER} ${FLAG_OBJGEN}" CACHE INTERNAL "C++ Compiler option flags" )
@@ -127,11 +129,10 @@ set ( CMAKE_EXE_LINKER_FLAGS_RELEASE "-flto" CACHE INTERNAL "Linker options for 
 # ---------------------------------------------------------------------------------------
 # Set compilers
 # ---------------------------------------------------------------------------------------
-set ( CMAKE_C_COMPILER ${TOOLCHAIN_BIN_DIR}/${TOOLCHAIN_PREFIX}-gcc${TOOLCHAIN_EXT} CACHE INTERNAL "C Compiler" )
-set ( CMAKE_CXX_COMPILER ${TOOLCHAIN_BIN_DIR}/${TOOLCHAIN_PREFIX}-g++${TOOLCHAIN_EXT} CACHE INTERNAL "C++ Compiler" )
-set ( CMAKE_ASM_COMPILER ${TOOLCHAIN_BIN_DIR}/${TOOLCHAIN_PREFIX}-gcc${TOOLCHAIN_EXT} CACHE INTERNAL "ASM Compiler" )
-
 if ( TOOLCHAIN_PREFIX )
+    set ( CMAKE_C_COMPILER ${TOOLCHAIN_BIN_DIR}/${TOOLCHAIN_PREFIX}-gcc${TOOLCHAIN_EXT} CACHE INTERNAL "C Compiler" )
+    set ( CMAKE_CXX_COMPILER ${TOOLCHAIN_BIN_DIR}/${TOOLCHAIN_PREFIX}-g++${TOOLCHAIN_EXT} CACHE INTERNAL "C++ Compiler" )
+    set ( CMAKE_ASM_COMPILER ${TOOLCHAIN_BIN_DIR}/${TOOLCHAIN_PREFIX}-gcc${TOOLCHAIN_EXT} CACHE INTERNAL "ASM Compiler" )
     set ( CMAKE_FIND_ROOT_PATH ${TOOLCHAIN_PATH}/${${TOOLCHAIN_PREFIX}} ${CMAKE_PREFIX_PATH} )
     set ( CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER )
     set ( CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY )

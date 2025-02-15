@@ -1,39 +1,36 @@
 [submodule "Benchmark"]
-    path= cmake/System/3rdpart/benchmark
+    path= System/3rdpart/benchmark
     url = https://github.com/google/benchmark.git
 [submodule "Brpc"]
-    path = cmake/System/3rdpart/brpc
+    path = System/3rdpart/brpc
     url = https://github.com/apache/brpc.git
 [submodule "ConcurrentQueue"]
-    path = cmake/System/3rdpart/concurrentqueue
+    path = System/3rdpart/concurrentqueue 
     url = https://github.com/cameron314/concurrentqueue.git
 [submodule "Eigen"]
-    path = cmake/System/3rdpart/eigen
+    path = System/3rdpart/eigen
     url  = https://gitlab.com/libeigen/eigen
 [submodule "iperf"]
-    path= cmake/System/3rdpart/iperf
+    path= System/3rdpart/iperf
     url = https://github.com/esnet/iperf.git
 [submodule "json"]
-    path= cmake/System/3rdpart/json
+    path= System/3rdpart/json
     url = https://github.com/nlohmann/json.git
 [submodule "Zeromq"]
-    path= cmake/System/3rdpart/cppzmq
+    path= System/3rdpart/cppzmq
     url = https://github.com/zeromq/cppzmq.git
 [submodule "libuv"]
-    path= cmake/System/3rdpart/libuv
+    path= System/3rdpart/libuv
     url = https://github.com/libuv/libuv.git
 [submodule "Libevent"]
-    path = cmake/System/3rdpart/libevent
+    path = System/3rdpart/libevent 
     url  = https://github.com/libevent/libevent.git
-[submodule "oneTBB"]
-    path = cmake/System/3rdpart/oneTBB
-    url  = https://github.com/uxlfoundation/oneTBB.git
 [submodule "Protobuf"]
-    path = cmake/System/3rdpart/protobuf
+    path = System/3rdpart/protobuf 
     url = https://github.com/protocolbuffers/protobuf.git
 [submodule "Taskflow"]
-    path = cmake/System/3rdpart/taskflow
+    path = System/3rdpart/taskflow
     url = https://github.com/taskflow/taskflow.git
 [submodule "tinyProcess"]
-    path= cmake/System/3rdpart/tiny-process-library
+    path= System/3rdpart/tiny-process-library
     url = https://gitlab.com/eidheim/tiny-process-library.git

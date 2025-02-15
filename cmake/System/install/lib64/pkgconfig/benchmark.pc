@@ -1,0 +1,12 @@
+prefix=/home/jlibyvali/Developer/projetcs/Mftp/System/install
+exec_prefix=${prefix}
+libdir=/home/jlibyvali/Developer/projetcs/Mftp/System/install/lib64
+includedir=/home/jlibyvali/Developer/projetcs/Mftp/System/install/include
+
+Name: benchmark
+Description: Google microbenchmark framework
+Version: 1.9.1
+
+Libs: -L${libdir} -lbenchmark
+Libs.private: -lpthread 
+Cflags: -I${includedir}

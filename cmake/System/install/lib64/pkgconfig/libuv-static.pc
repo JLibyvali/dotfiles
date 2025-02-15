@@ -1,0 +1,12 @@
+prefix=/home/jlibyvali/Developer/projetcs/Mftp/System/install
+exec_prefix=${prefix}
+libdir=/home/jlibyvali/Developer/projetcs/Mftp/System/install/lib64
+includedir=/home/jlibyvali/Developer/projetcs/Mftp/System/install/include
+
+Name: libuv-static
+Version: 1.50.0
+Description: multi-platform support library with a focus on asynchronous I/O.
+URL: http://libuv.org/
+
+Libs: -L${libdir} -l:libuv.a -lpthread -ldl -lrt
+Cflags: -I${includedir}

@@ -1,36 +1,10 @@
-# Represent for `message(STATUS msg)`
-macro ( info _msg )
-    message ( STATUS "@@@@@@@@@@ ${_msg} @@@@@@@@@@" )
-endmacro ()
+# ####################################################################################################
+# Add Test related functions
+# ####################################################################################################
 
-# Generate more debug information for given target
-# Usage: more_debug_info(target_name)
-function ( more_debug_info _target_name )
-    if ( NOT TARGET ${_target_name} )
-        message ( FATAL_ERROR "@@@@@@@@@@ ${_target_name} Wrong @@@@@@@@@" )
-    endif ()
-
-    set ( debug_ARCHIVES ${CMAKE_CURRENT_BINARY_DIR}/CMakeFiles/${_target_name}.dir )
-
-    target_compile_options ( ${_target_name} PRIVATE -save-temps=obj )
-    target_compile_options ( ${_target_name} PRIVATE
-        -Wa,-a,-ad > ${debug_ARCHIVES}/${_target_name}.cod
-    )
-    target_link_options ( ${_target_name} PRIVATE
-        -Wl,-Map=${debug_ARCHIVES}/${_target_name}.map
-    )
-
-    # Generate disassembler files
-    add_custom_command (
-        TARGET ${_target_name} POST_BUILD
-        COMMAND ${CMAKE_OBJDUMP} -S --source-comment="[@@@SOURCES@@@]" ${CMAKE_CURRENT_BINARY_DIR}/${_target_name} > ${debug_ARCHIVES}/${_target_name}.disasm
-        COMMENT "@@@@@@@@@ Generating Disassembler Information @@@@@@@@@@"
-        VERBATIM
-    )
-endfunction ( more_debug_info _target_name )
-
-# Get current project generated all executable files
-# Usage: get_allexecutables(return_list)
+# Get Project current all executable object created via `add_executable()`.
+# @Usage: get_allexecutables( results_list )
+# @arg: _return_list the list to store all results.
 macro ( get_allexecutables _return_list )
     get_property ( _targets DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY BUILDSYSTEM_TARGETS )
     set ( _executables )
@@ -43,14 +17,13 @@ macro ( get_allexecutables _return_list )
         endif ()
     endforeach ()
 
-    # Result is a list
     set ( ${_return_list} ${_executables} )
 endmacro ()
 
-# macro to build a series executables with given lists
-# Usage: build_executables(_name_list _src_list)
-# @arg: _name_list A CMake list variable to use in add_executable()
-# @arg: _src_list Executable file list
+# Build a series executables with given lists.
+# @Usage: build_executables( _name_list  _src_list)
+# @arg: _name_list A CMake list variable that will used as the name of `add_executable()`
+# @arg: _src_list Executable source file list
 macro ( build_executables _name_list _src_list )
     list ( LENGTH ${_name_list} len )
 
@@ -66,9 +39,9 @@ macro ( build_executables _name_list _src_list )
     endforeach ()
 endmacro ()
 
-# Generate Separate Executable files under specific directory
+# Generate Separate Executable from C/C++ single source files, the backward is that you cannot link libraries for these executables.
 # Usage: generate_executables(_dir [RECURSIVE])
-# @arg: _dir Must given a Absolute path name
+# @arg: _dir Must be a Absolute PATH
 function ( generate_executables _dir )
     if ( NOT IS_DIRECTORY "${_dir}" )
         message ( FATAL_ERROR "@@@@@@@@@ ${_dir} is NOT A DIRECTORY @@@@@@@@" )
