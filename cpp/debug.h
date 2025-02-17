@@ -1,12 +1,12 @@
-#ifndef C_OOP_DEBUG__H
-#define C_OOP_DEBUG__H
+#ifndef __GENERAL_DEBUG__H
+#define __GENERAL_DEBUG__H
 
-#include <unistd.h>
-#include <sys/stat.h>
+#include <assert.h>
 #include <errno.h>
 #include <fcntl.h>
-#include <assert.h>
 #include <stdio.h>
+#include <sys/stat.h>
+#include <unistd.h>
 
 // #####################################################################################
 //  Debug Macro
@@ -94,6 +94,7 @@ typedef enum
 #define Arrlen(arr)        (sizeof((arr)) / sizeof(arr[0]))
 #define Panic(format, ...) Assert(0, format, ##__VA_ARGS__)
 #define TODO               Panic("YOU Have to Implemented Here!!");
+
 #define Checkret(action, resval, retval, msg, ...)               \
     do                                                           \
     {                                                            \
@@ -108,6 +109,7 @@ typedef enum
         }                                                        \
     }                                                            \
     while (0)
+
 #define Checkerr(action, resval, msg, ...) \
     do                                     \
     {                                      \
@@ -118,17 +120,14 @@ typedef enum
     }                                      \
     while (0)
 
-#endif
-
-
 // ######################################################################################
 //  Log file function implementation
 // ######################################################################################
 
-static int is_loginit = 0;
-static FILE      *log_ptr;
+static int   is_loginit = 0;
+static FILE *log_ptr;
 
-inline void       gen_logfile(void)
+inline void  gen_logfile(void)
 {
     if (is_loginit)
         return;
@@ -173,3 +172,5 @@ inline char *check_level(log_level _level)
         }
     };
 }
+
+#endif
